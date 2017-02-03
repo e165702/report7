@@ -5,33 +5,33 @@ package jp.ac.uryukyu.ie.e165702;
  */
 public class Main{
     public static void main(String[] args){
-        Human human = new Human();
-        human.Player_first_active();
-        if (human.getBust_count() == 21) {
+        Human_active human_active = new Human_active();
+        human_active.Player_first_active();
+        if (human_active.getBust_count() == 21) {
             System.out.printf("「blackjack」playerの勝ちです\n");
-        }else if(human.getBust_count() != 21){
-            human.Dealer_first_active();
+        }else if(human_active.getBust_count() != 21){
+            human_active.Dealer_first_active();
         }
-        if (human.getBust_count2() == 21) {
+        if (human_active.getBust_count2() == 21) {
             System.out.printf("「blackjack」dealerの勝ちです\n");
-        }else if(human.getBust_count2() != 21&&human.getBust_count()<=20){
-            human.Player_second_active();
+        }else if(human_active.getBust_count2() != 21&&human_active.getBust_count()<=20){
+            human_active.Player_second_active();
         }
-        if (21 < human.getBust_count()) {
+        if (21 < human_active.getBust_count()) {
             System.out.printf("bustしました。\n");
             System.out.printf("dealerの勝ち。\n");
         }else{
-            human.Dealer_second_active();
+            human_active.Dealer_second_active();
         }
-        if (21 < human.getBust_count2()) {
+        if (21 < human_active.getBust_count2()) {
             System.out.printf("bustしました。\n");
             System.out.printf("playerの勝ち。\n");
         }
-        if (human.getBust_count()<=20 && human.getBust_count2() <=20){
+        if (human_active.getBust_count()<=20 && human_active.getBust_count2() <=20){
             //最終ジャッジ
             System.out.printf("最終ジャッジ。\n");
-            int player_jage = human.getBust_count() - 21;
-            int dealer_jage = human.getBust_count2() - 21;
+            int player_jage = human_active.getBust_count() - 21;
+            int dealer_jage = human_active.getBust_count2() - 21;
             if (player_jage >= dealer_jage) {
                 System.out.printf("playerの勝ち。\n");
             }else if(player_jage == dealer_jage){
