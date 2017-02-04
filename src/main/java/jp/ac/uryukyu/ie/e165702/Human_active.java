@@ -4,19 +4,23 @@ package jp.ac.uryukyu.ie.e165702;
  * Created by e165702 on 2017/02/03.
  */
 import java.util.Scanner;
+/*
+PlayerとDealerが行動をするためのクラス
+ */
 public class Human_active extends Make_hands{
-    //Hands_list h = new Hands_list();
     private int player_score = 0;
-    private int player_hands=0;
+    //private int player_hands=0;
 
     public void Player_first_active() {
-        //playerに初期カードを配布
+        /*Playerに初期カードを配布するメソッド
+        Playerに二枚カードが配られる
+         */
         System.out.printf("playerの初期行動。\n");
         for (int i = 0; i <= 1; ) {
             Player_hands();
             if (not_duplication==true) {
-                player_hands = draw_card;
-                player_score = player_score + player_hands;//総合得点
+                //player_hands = draw_card;
+                player_score = player_score + draw_card;//Playerの合計得点を更新
                 System.out.printf("playerの点数は%sです\n", player_score);
                 i++;
 
@@ -24,72 +28,94 @@ public class Human_active extends Make_hands{
         }
     }
     public void Player_second_active() {
+        /*playerのカードを追加するメソッド
+        1を入力することでhitを選択する
+       hitが選択されるとカードを一枚引く
+       2を入力することでstandを選択する
+       standが選択されるとPlayerは行動を終了する
+         */
         System.out.printf("playerの行動。\n");
-        //h.i3_d = 4;
-        //playerカードの追加
         while (player_score <= 21) {
             System.out.printf("1,hit 2,stand\n");
             String input;
             Scanner in = new Scanner(System.in);
             input = in.nextLine();
-            //System.out.printf("%s\n", input);
             int c = Integer.parseInt(input);
             if (c == 1) {
                 for (int i = 0; i < 1; i++) {
                     Player_hands();
                     if (not_duplication==true) {
-                        player_hands = draw_card;
-                        player_score = player_score + player_hands;//総合得点
+                        //player_hands = draw_card;
+                        player_score = player_score + draw_card;//Playerの合計得点を更新
                         System.out.printf("playerの点数は%sです\n", player_score);
                         i++;
                     }
                 }
             } else {
                 System.out.printf("standが選択されました。\n");
+                System.out.printf("Player行動終了\n");
+
                 break;
             }
         }
     }
 
     private int dealer_score = 0;
-    private int dealer_hands=0;
+    //private int dealer_hands=0;
     public void Dealer_first_active() {
-        //dealer初期カード配布
+        /*Dealerに初期カードを配布するメソッド
+        Dealerに二枚カードが配られる
+         */
         System.out.printf("dealerの初期行動。\n");
-        //h.i3_d = 2;
         for (int i = 0; i <= 1; ) {
             Dealer_hands();
             if (not_duplication==true) {
-                dealer_hands = draw_card;
-                dealer_score = dealer_score + draw_card;//総合得点
-                //System.out.printf("dealerの点数は%sです\n", dealer_score);
-                //System.out.printf("%s,%s,%s,%s\n",hands_list[0],hands_list[1],hands_list[2],hands_list[3]);
+                //dealer_hands = draw_card;
+                dealer_score = dealer_score + draw_card;//Dealerの合計得点を更新
                 i++;
             }
         }
     }
     public void Dealer_second_active(){
+        /*
+        Dealerのカードを追加するメソッド
+        Deal合計点が16以下の場合カードを一枚追加する
+        Deal合計点が17以上の場合Dealerの行動を終了する
+         */
         System.out.printf("dealerの行動。\n");
-        //System.out.printf("%s\n",1);
         while (dealer_score <= 20) {
-            //System.out.printf("%s\n",2);
             if (dealer_score <= 16) {
-                //System.out.printf("%s\n",3);
                 for (int i = 0; i < 1; i++) {
-                    //h.i3_d = h.i3_d+1;
                   Dealer_hands();
                     if (not_duplication==true) {
-                        if (0 <= dealer_hands && dealer_hands <= 12) {
-                            dealer_hands = draw_card;
-                            dealer_score = dealer_score + draw_card;
-                            //System.out.printf("dealerの点数は%sです\n", dealer_score);
-                        }
+                        //if (0 <= dealer_hands && dealer_hands <= 12) {
+                            //dealer_hands = draw_card;
+                            dealer_score = dealer_score + draw_card;//Dealerの合計得点を更新
+                        //}
                     }
                 }
-            }break;
+            }
+            break;
+        }
+        System.out.printf("Dealer行動終了\n");
+    }
+    public void Final_judge(){
+        /*
+        Player,Dealerともにbustしなかったとき,21に近いほうを判断するメソッド
+         */
+        System.out.printf("最終ジャッジ。\n");
+        int player_judge = player_score - 21;
+        int dealer_judge = dealer_score - 21;
+        if (player_judge >= dealer_judge) {
+            System.out.printf("playerの勝ち。\n");
+        }else if(player_judge == dealer_judge){
+            System.out.printf("引き分け\n");
+        }
+        else{
+            System.out.printf("dealerの勝ち。\n");
         }
     }
-    public int getBust_count(){return player_score;}
-    public int getBust_count2(){return dealer_score;}
+    public int getPlayer_score(){return player_score;}
+    public int getDealer_score(){return dealer_score;}
 }
 
