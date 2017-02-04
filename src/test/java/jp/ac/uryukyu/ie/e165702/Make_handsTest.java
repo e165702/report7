@@ -14,34 +14,25 @@ public class Make_handsTest {
     @Test
     public void make_hands_test() throws Exception {
         int test_hands;
-        int i3_d = 0;
+        //int i3_d = 0;
         int[] hands_list = new int[3];
         boolean  not_duplication= true;
+        Make_hands make_hands = new Make_hands();
 
         for (int i = 0; i <=2;) {
-            test_hands = (int) (Math.random() * 3);//test_handsにランダムで1~3を数字を入れる
-            hands_list[i] = test_hands;//リストのi番目にランダムで出た数字を入れる
+            make_hands.hands1 = (int) (Math.random() * 3);
+            make_hands.hands_list[make_hands.i3_d] = make_hands.hands1;
             //同じカードが出たかどうかを判定
-            if (i3_d!=0) {
-                for (int i4_d = 0; i4_d <= i3_d- 1;i4_d++) {//i=のとき一回,i=2のとき二回
-                    not_duplication =true;//ここでtrueに直すことで同じカードが出た場合にfalseなったものを直す。直さないとループする
-                    //System.out.printf("test_hands=%s\n", test_hands);
-                    if (test_hands == hands_list[i4_d]) {
-                        //System.out.printf("i4_d=%s\n",i3_d-1);
-                        //System.out.printf("hands_list[i]=%s\n", hands_list[i4_d]);
-                        System.out.printf("同じカードが出ました。\n");
-                        not_duplication = false;
-                        //System.out.printf("%s\n", not_duplication);
-                        //System.out.printf("i=%s\n", i);
-                        break;
-                    }
-                }
+            if (make_hands.i3_d != 0) {
+                make_hands.Human_hands2();
             }
-            if (not_duplication == true) {
-                System.out.printf("test_hands=%s\n",test_hands);
-                i3_d++;
+            if (make_hands.not_duplication==true) {
+                System.out.printf("引いたカードは%s\n",make_hands.hands1);
+                //System.out.printf("%s,%s,%s\n",make_hands.hands_list[0],make_hands.hands_list[1],make_hands.hands_list[2]);
+                make_hands.i3_d++;
                 i++;
             }
+
         }
         System.out.printf("終了\n");
     }
