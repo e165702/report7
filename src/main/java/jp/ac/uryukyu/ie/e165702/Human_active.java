@@ -13,9 +13,9 @@ public class Human_active extends Make_hands{
         //playerに初期カードを配布
         System.out.printf("playerの初期行動。\n");
         for (int i = 0; i <= 1; ) {
-            Human_hands();
-            if (i5_d) {
-                player_hands = hands2;
+            Player_hands();
+            if (not_duplication==true) {
+                player_hands = draw_card;
                 player_score = player_score + player_hands;//総合得点
                 System.out.printf("playerの点数は%sです\n", player_score);
                 i++;
@@ -35,13 +35,13 @@ public class Human_active extends Make_hands{
             //System.out.printf("%s\n", input);
             int c = Integer.parseInt(input);
             if (c == 1) {
-                for (int i2 = 0; i2 < 1; i2++) {
-                    Human_hands();
-                    if (i5_d) {
-                        player_hands = hands2;
+                for (int i = 0; i < 1; i++) {
+                    Player_hands();
+                    if (not_duplication==true) {
+                        player_hands = draw_card;
                         player_score = player_score + player_hands;//総合得点
                         System.out.printf("playerの点数は%sです\n", player_score);
-                        i2++;
+                        i++;
                     }
                 }
             } else {
@@ -58,11 +58,12 @@ public class Human_active extends Make_hands{
         System.out.printf("dealerの初期行動。\n");
         //h.i3_d = 2;
         for (int i = 0; i <= 1; ) {
-            Human_hands();
-            if (i5_d) {
-                dealer_hands = hands2;
-                dealer_score = dealer_score + hands2;//総合得点
-                System.out.printf("dealerの点数は%sです\n", dealer_score);
+            Dealer_hands();
+            if (not_duplication==true) {
+                dealer_hands = draw_card;
+                dealer_score = dealer_score + draw_card;//総合得点
+                //System.out.printf("dealerの点数は%sです\n", dealer_score);
+                //System.out.printf("%s,%s,%s,%s\n",hands_list[0],hands_list[1],hands_list[2],hands_list[3]);
                 i++;
             }
         }
@@ -74,14 +75,14 @@ public class Human_active extends Make_hands{
             //System.out.printf("%s\n",2);
             if (dealer_score <= 16) {
                 //System.out.printf("%s\n",3);
-                for (int i2 = 0; i2 < 1; i2++) {
+                for (int i = 0; i < 1; i++) {
                     //h.i3_d = h.i3_d+1;
-                    Human_hands();
-                    if (i5_d) {
+                  Dealer_hands();
+                    if (not_duplication==true) {
                         if (0 <= dealer_hands && dealer_hands <= 12) {
-                            dealer_hands = hands2;
-                            dealer_score = dealer_score + hands2;
-                            System.out.printf("dealerの点数は%sです\n", dealer_score);
+                            dealer_hands = draw_card;
+                            dealer_score = dealer_score + draw_card;
+                            //System.out.printf("dealerの点数は%sです\n", dealer_score);
                         }
                     }
                 }
