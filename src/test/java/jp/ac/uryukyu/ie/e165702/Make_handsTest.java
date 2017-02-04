@@ -25,10 +25,10 @@ public class Make_handsTest {
             if (i3_d!=0) {
                 for (int i4_d = 0; i4_d <= i3_d- 1;i4_d++) {//i=のとき一回,i=2のとき二回
                     not_duplication =true;//ここでtrueに直すことで同じカードが出た場合にfalseなったものを直す。直さないとループする
-                    System.out.printf("test_hands=%s\n", test_hands);
+                    //System.out.printf("test_hands=%s\n", test_hands);
                     if (test_hands == hands_list[i4_d]) {
-                        System.out.printf("i4_d=%s\n",i3_d-1);
-                        System.out.printf("hands_list[i]=%s\n", hands_list[i4_d]);
+                        //System.out.printf("i4_d=%s\n",i3_d-1);
+                        //System.out.printf("hands_list[i]=%s\n", hands_list[i4_d]);
                         System.out.printf("同じカードが出ました。\n");
                         not_duplication = false;
                         //System.out.printf("%s\n", not_duplication);
@@ -39,13 +39,13 @@ public class Make_handsTest {
                 }//System.out.printf("iiiiiiiiiiiiiiii\n");
             }
             if (not_duplication == true) {
-                System.out.printf("iiiiiiiiiiiiiiii\n");
-                System.out.printf("＃＃test_hands=%s\n",test_hands);
+                //System.out.printf("iiiiiiiiiiiiiiii\n");
+                System.out.printf("test_hands=%s\n",test_hands);
                 i3_d++;
                 i++;
             }
-            System.out.printf("終了\n");
+            //System.out.printf("終了\n");
 
-        }
+        }System.out.printf("終了\n");
     }
 }
