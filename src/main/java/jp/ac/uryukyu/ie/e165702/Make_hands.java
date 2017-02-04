@@ -15,7 +15,7 @@ public class Make_hands{
     //public   int[] hands_list = new int[52];
     //int player_id_3;
     public void Human_hands() {
-        hands1 = (int) (Math.random() * 51);
+        hands1 = (int) (Math.random() * 5);
         //System.out.printf("i3_d=%s\n", i3_d);
         hands_list[i3_d] = hands1;
         //System.out.printf("hands1=%s\n",hands1);
@@ -26,7 +26,7 @@ public class Make_hands{
         if (i3_d != 0) {
             Human_hands2();
         }
-        if (i5_d) {
+        if (i5_d=true) {
             if (0 <= hands1 && hands1 <= 12) {
                 System.out.printf("このカードは♠の%sです\n", hands1 + 1);
                 hands2 = hands1 + 1;
