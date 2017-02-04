@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
  */
 public class Make_handsTest {
     /**
-     * {落胆(落単)している}状態では喜べない」ことを確認。
+     * 「同じカードが出たときに引き直している」ことを確認。
      *
      * @throws Exception
      */
@@ -35,17 +35,14 @@ public class Make_handsTest {
                         //System.out.printf("i=%s\n", i);
                         break;
                     }
-                    //System.out.printf("aaaaaaaaaaaa\n");
-                }//System.out.printf("iiiiiiiiiiiiiiii\n");
+                }
             }
             if (not_duplication == true) {
-                //System.out.printf("iiiiiiiiiiiiiiii\n");
                 System.out.printf("test_hands=%s\n",test_hands);
                 i3_d++;
                 i++;
             }
-            //System.out.printf("終了\n");
-
-        }System.out.printf("終了\n");
+        }
+        System.out.printf("終了\n");
     }
 }
