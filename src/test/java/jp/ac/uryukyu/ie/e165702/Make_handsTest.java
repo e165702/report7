@@ -8,7 +8,11 @@ import static org.junit.Assert.*;
 public class Make_handsTest {
     /**
      * 「同じカードが出たときに引き直している」ことを確認。
-     *
+     * 必ず
+     *引いたカードは0
+     *引いたカードは1
+     *引いたカードは2
+     *の全てが表示される
      * @throws Exception
      */
     @Test
