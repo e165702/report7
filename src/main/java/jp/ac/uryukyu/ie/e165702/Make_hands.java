@@ -4,60 +4,99 @@ package jp.ac.uryukyu.ie.e165702;
  * Created by e165702 on 2017/02/03.
  */
 public class Make_hands{
-    private int [] hands_list = new int [52];
-    private int hands1=0;
-    public int hands2=0;
-    private int i3_d=0;
-    public boolean i5_d= true;//trueの時はかぶってない
-    //Hands_list2 h2 = new Hands_list2();
-    //public int [] hands_list = new int[52];
-
-    //public   int[] hands_list = new int[52];
-    //int player_id_3;
-    public void Human_hands() {
-        hands1 = (int) (Math.random() * 51);
-        //System.out.printf("i3_d=%s\n", i3_d);
-        hands_list[i3_d] = hands1;
-        //System.out.printf("hands1=%s\n",hands1);
-        //System.out.printf("hands_list[i3_d]=%s\n", h2.hands_list[h2.i3_d]);*/
-        //System.out.printf("number=%s\n",number);
-        //System.out.printf("i3_d=%s\n",i3_d);
+    public int [] hands_list = new int [52];
+    public int random_number=0;
+    public int draw_card=0;
+    public int count_number=0;
+    public boolean not_duplication= true;//trueの時は引いたカードが重複していない
+    public void Player_hands() {
+        /*
+        Playerがカードを引くためのメソッド
+        またBLACKJACKではAは11点J,Q,Kは10となる
+         */
+        random_number = (int) (Math.random() * 51);
+        hands_list[count_number] = random_number;
         //同じカードが出たかどうかを判定
-        if (i3_d != 0) {
+        if (count_number != 0) {
             Human_hands2();
         }
-        if (i5_d==true) {
-            if (0 <= hands1 && hands1 <= 12) {
-                System.out.printf("このカードは♠の%sです\n", hands1 + 1);
-                hands2 = hands1 + 1;
-            } else if (12 < hands1 && hands1 <= 25) {
-                System.out.printf("このカードは❤️の%sです\n", hands1 - 12);
-                hands2 = hands1 - 12;
-            } else if (25 < hands1 && hands1 <= 38) {
-                System.out.printf("このカードは♣️の%sです\n", hands1 - 25);
-                hands2 = hands1 - 25;
+        if (not_duplication==true) {
+            if (0 <= random_number && random_number <= 12) {
+                System.out.printf("引いたカードは♠の%sです\n", random_number+ 1);
+                draw_card = random_number + 1;//ランダムで出た0~12を1~13に変更
+            } else if (12 < random_number && random_number <= 25) {
+                System.out.printf("引いたカードは❤️の%sです\n", random_number- 12);
+                draw_card = random_number- 12;//ランダムで出た13~25を1~13に変更
+            } else if (25 < random_number && random_number <= 38) {
+                System.out.printf("引いたカードは♣️の%sです\n", random_number - 25);
+                draw_card = random_number- 25;//ランダムで出た26~38を1~13に変更
             } else {
-                System.out.printf("このカードは♦️️の%sです\n", hands1 - 38);
-                hands2 = hands1 - 38;
+                System.out.printf("引いたカードは♦️️の%sです\n", random_number - 38);
+                draw_card = random_number- 38;//ランダムで出た39~51を1~13に変更
             }
 
-            if (hands2 == 1) {
-                hands2 = 11;
-            } else if (11 <= hands2 && hands2 <= 13) {
-                hands2 = 10;
+            if (draw_card == 1) {
+                draw_card = 11;//Aが出た場合点数を11点にしている
+            } else if (11 <= draw_card && draw_card <= 13) {
+                draw_card = 10;//J,Q,Kが出た場合点数を10点にしている
             }
-            i3_d++;
+            count_number++;
 
-            //private boolean bust;
         }
-        //System.out.printf("%s,%s,%s,%s,%s\n",hands_list[0],hands_list[1],hands_list[2],hands_list[3],hands_list[4]);
+    }
+    public void Dealer_hands() {
+        /*
+        Dealerがカードを引くためのメソッド
+        基本的にはPlayer_hands()と同じだがDealerはカードを1枚目しか公開しないため条件が追加されている
+        */
+        random_number = (int) (Math.random() * 51);
+        hands_list[count_number] = random_number;
+        //同じカードが出たかどうかを判定
+        if (count_number != 0) {
+            Human_hands2();
+        }
+        if (not_duplication==true) {
+            if (0 <= random_number && random_number <= 12) {
+                if(count_number==2) {//count_number==2のとき,Dealerが1枚目を引いたときとなる
+                    System.out.printf("引いたカードは♠の%sです\n", random_number + 1);
+                }
+                draw_card = random_number + 1;
+            } else if (12 < random_number && random_number <= 25) {
+                if(count_number==2) {
+                    System.out.printf("引いたカードは❤️の%sです\n", random_number - 12);
+                }
+                draw_card = random_number- 12;
+            } else if (25 < random_number && random_number <= 38) {
+                if(count_number==2) {
+                    System.out.printf("引いたカードは♣️の%sです\n", random_number - 25);
+                }
+                draw_card = random_number- 25;
+            } else {
+                if(count_number==2) {
+                    System.out.printf("引いたカードは♦️️の%sです\n", random_number - 38);
+                }
+                draw_card = random_number- 38;
+            }
+
+            if (draw_card == 1) {
+                draw_card = 11;
+            } else if (11 <= draw_card && draw_card <= 13) {
+                draw_card = 10;
+            }
+            count_number++;
+
+        }
     }
     public void Human_hands2() {
-        for (int i4_d = 0; i4_d <= i3_d-1;i4_d++) {
-            i5_d = true;
-            if (hands1 == hands_list[i4_d]) {
-                System.out.printf("同じカードが出ました。\n");
-                i5_d = false;
+        /*
+        同じカードを引いたときに引き直すためのメソッド
+        ランダムで出た数字とhands_listに格納されているすでに出た数字を1番目から順に比較している
+         */
+        for (int i= 0; i <= count_number-1;i++) {
+            not_duplication = true;//not_duplicationを初期化している
+            if (random_number== hands_list[i]) {//ランダムに出た数字とlistのi番目を比較している
+                System.out.printf("同じカードを引きました。\n");
+                not_duplication = false;
                 break;
             }
         }
