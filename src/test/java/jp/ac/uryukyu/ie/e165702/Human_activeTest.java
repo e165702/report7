@@ -16,11 +16,11 @@ public class Human_activeTest {
         int human_hands=0;
         int human_score=0;
         for (int i = 0; i <= 1;) {
-            make_hands.Human_hands();
-            if (make_hands.i5_d) {
-                human_hands = make_hands.hands2;
+            make_hands.Player_hands();
+            if (make_hands.not_duplication==true) {
+                human_hands = make_hands.draw_card;
                 human_score = human_score + human_hands;//総合得点
-                System.out.printf("human_score=%sです\n", human_score);
+                System.out.printf("合計点は=%sです\n", human_score);
                 i++;
 
             }
