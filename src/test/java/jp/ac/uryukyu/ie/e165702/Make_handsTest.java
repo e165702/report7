@@ -23,7 +23,7 @@ public class Make_handsTest {
             make_hands.hands_list[make_hands.count_number] = make_hands.random_number;
             //同じカードが出たかどうかを判定
             if (make_hands.count_number != 0) {
-                make_hands.Human_hands2();
+                make_hands.Draw_again();
             }
             if (make_hands.not_duplication==true) {
                 System.out.printf("引いたカードは%s\n",make_hands.random_number);

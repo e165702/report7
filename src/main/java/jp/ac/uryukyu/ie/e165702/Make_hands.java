@@ -18,7 +18,7 @@ public class Make_hands{
         hands_list[count_number] = random_number;
         //同じカードが出たかどうかを判定
         if (count_number != 0) {
-            Human_hands2();
+            Draw_again();
         }
         if (not_duplication==true) {
             if (0 <= random_number && random_number <= 12) {
@@ -53,7 +53,7 @@ public class Make_hands{
         hands_list[count_number] = random_number;
         //同じカードが出たかどうかを判定
         if (count_number != 0) {
-            Human_hands2();
+            Draw_again();
         }
         if (not_duplication==true) {
             if (0 <= random_number && random_number <= 12) {
@@ -87,7 +87,7 @@ public class Make_hands{
 
         }
     }
-    public void Human_hands2() {
+    public void Draw_again() {
         /*
         同じカードを引いたときに引き直すためのメソッド
         ランダムで出た数字とhands_listに格納されているすでに出た数字を1番目から順に比較している
