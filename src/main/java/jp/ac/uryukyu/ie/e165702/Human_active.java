@@ -34,9 +34,9 @@ public class Human_active extends Make_hands{
        2を入力することでstandを選択する
        standが選択されるとPlayerは行動を終了する
          */
-        System.out.printf("playerの行動。\n");
+        System.out.print("playerの行動。\n");
         while (player_score <= 21) {
-            System.out.printf("1,hit 2,stand\n");
+            System.out.print("1,hit 2,stand\n");
             String input;
             Scanner in = new Scanner(System.in);
             input = in.nextLine();
@@ -52,8 +52,8 @@ public class Human_active extends Make_hands{
                     }
                 }
             } else {
-                System.out.printf("standが選択されました。\n");
-                System.out.printf("Player行動終了\n");
+                System.out.print("standが選択されました。\n");
+                System.out.print("Player行動終了\n");
 
                 break;
             }
@@ -66,7 +66,7 @@ public class Human_active extends Make_hands{
         /*Dealerに初期カードを配布するメソッド
         Dealerに二枚カードが配られる
          */
-        System.out.printf("dealerの初期行動。\n");
+        System.out.print("dealerの初期行動。\n");
         for (int i = 0; i <= 1; ) {
             Dealer_hands();
             if (not_duplication==true) {
@@ -82,7 +82,7 @@ public class Human_active extends Make_hands{
         Deal合計点が16以下の場合カードを一枚追加する
         Deal合計点が17以上の場合Dealerの行動を終了する
          */
-        System.out.printf("dealerの行動。\n");
+        System.out.print("dealerの行動。\n");
         while (dealer_score <= 20) {
             if (dealer_score <= 16) {
                 for (int i = 0; i < 1; i++) {
@@ -97,22 +97,22 @@ public class Human_active extends Make_hands{
             }
             break;
         }
-        System.out.printf("Dealer行動終了\n");
+        System.out.print("Dealer行動終了\n");
     }
     public void Final_judge(){
         /*
         Player,Dealerともにbustしなかったとき,21に近いほうを判断するメソッド
          */
-        System.out.printf("最終ジャッジ。\n");
+        System.out.print("最終ジャッジ。\n");
         int player_judge = player_score - 21;
         int dealer_judge = dealer_score - 21;
         if (player_judge >= dealer_judge) {
-            System.out.printf("playerの勝ち。\n");
+            System.out.print("playerの勝ち。\n");
         }else if(player_judge == dealer_judge){
-            System.out.printf("引き分け\n");
+            System.out.print("引き分け\n");
         }
         else{
-            System.out.printf("dealerの勝ち。\n");
+            System.out.print("dealerの勝ち。\n");
         }
     }
     public int getPlayer_score(){return player_score;}

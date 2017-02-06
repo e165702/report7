@@ -95,7 +95,7 @@ public class Make_hands{
         for (int i= 0; i <= count_number-1;i++) {
             not_duplication = true;//not_duplicationを初期化している
             if (random_number== hands_list[i]) {//ランダムに出た数字とlistのi番目を比較している
-                System.out.printf("同じカードを引きました。\n");
+                System.out.print("同じカードを引きました。\n");
                 not_duplication = false;
                 break;
             }
