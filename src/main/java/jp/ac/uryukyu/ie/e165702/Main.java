@@ -31,13 +31,13 @@ public class Main{
         }
         if (human_active.getDealer_score() == 21) {
             System.out.print("「blackjack」dealerの勝ちです\n");
-        }else if(human_active.getDealer_score() != 21&&human_active.getPlayer_score()<=20){
+        }else if(human_active.getDealer_score() != 21&&human_active.getPlayer_score()<=21){
             human_active.Player_second_active();
         }
         if (21 < human_active.getPlayer_score()) {
             System.out.print("playerがburstしました。\n");
             System.out.print("dealerの勝ち。\n");
-        }else if(21 > human_active.getPlayer_score() && human_active.getDealer_score()<=20){
+        }else if(21 > human_active.getPlayer_score() && human_active.getDealer_score()<=21){
             human_active.Dealer_second_active();
         }
         if (21 < human_active.getDealer_score()) {
