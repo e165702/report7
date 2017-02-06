@@ -19,6 +19,7 @@ package jp.ac.uryukyu.ie.e165702;
  ・Dealerの行動が終了しPlayer,Dealerともにbustしなかった場合21に近い
  　方を勝者とする。
 
+ 
  */
 public class Main{
     public static void main(String[] args){
