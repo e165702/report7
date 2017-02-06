@@ -36,7 +36,7 @@ public class Human_active extends Make_hands{
          */
         System.out.print("playerの行動。\n");
         while (player_score <= 21) {
-            System.out.print("1,hit 2,stand\n");
+            System.out.print("1,hit(カードを引く) 2,stand(引くのをやめる)　");
             String input;
             Scanner in = new Scanner(System.in);
             input = in.nextLine();

@@ -2,6 +2,23 @@ package jp.ac.uryukyu.ie.e165702;
 
 /**
  * Created by e165702 on 2017/02/03.
+ *~今回の課題で作成した「BLACKJACK」のゲームの流れ~
+ ・初めにPlayerにカードを2枚配る
+ 　　＊この時点でPlayerの点数が21となった場合,Playerの勝ちとする
+ ・次にDealerにカードを2枚配る
+ 　　＊この時点でDealerの点数が21となった場合,Dealerの勝ちとする
+ ・カードを配り終えたらPlayerの行動に入る
+ 　Playerはhitかstandを選択する
+ 　hitが選択された場合カードを1枚引く
+ 　　＊この時点でbustした場合,Playerの負け
+ ・Playerの行動が終了したら,Dealerの行動に入る
+ 　Dealerは自身の合計点が17以上になるようにする
+ 　17以下の場合,合計点が17以上になるまでカードを引く
+ 　　＊この時点でbustした場合,Dealerの負け
+ 　17以上の場合行動を終了する
+ ・Dealerの行動が終了しPlayer,Dealerともにbustしなかった場合21に近い
+ 　方を勝者とする。
+
  */
 public class Main{
     public static void main(String[] args){
