@@ -20,7 +20,7 @@ public class Main{
         if (21 < human_active.getPlayer_score()) {
             System.out.print("bustしました。\n");
             System.out.print("dealerの勝ち。\n");
-        }else{
+        }else if(21 > human_active.getPlayer_score() && human_active.getDealer_score()<=20){
             human_active.Dealer_second_active();
         }
         if (21 < human_active.getDealer_score()) {
