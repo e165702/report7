@@ -103,7 +103,9 @@ public class Human_active extends Make_hands{
         /*
         Player,Dealerともにbustしなかったとき,21に近いほうを判断するメソッド
          */
-        System.out.print("最終ジャッジ。\n");
+        System.out.printf("最終ジャッジ。\n");
+        System.out.printf("Player=%s\n",player_score);
+        System.out.printf("Dealer=%s\n",dealer_score);
         int player_judge = player_score - 21;
         int dealer_judge = dealer_score - 21;
         if (player_judge >= dealer_judge) {

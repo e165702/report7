@@ -18,13 +18,13 @@ public class Main{
             human_active.Player_second_active();
         }
         if (21 < human_active.getPlayer_score()) {
-            System.out.print("bustしました。\n");
+            System.out.print("playerがburstしました。\n");
             System.out.print("dealerの勝ち。\n");
         }else if(21 > human_active.getPlayer_score() && human_active.getDealer_score()<=20){
             human_active.Dealer_second_active();
         }
         if (21 < human_active.getDealer_score()) {
-            System.out.print("bustしました。\n");
+            System.out.print("dealerがburstしました。\n");
             System.out.print("playerの勝ち。\n");
         }
         if (human_active.getPlayer_score()<=20 && human_active.getDealer_score() <=20){
